@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Event;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -13,14 +14,16 @@ class EventsController extends Controller
      */
     public function indexAction()
     {
-        $tab = [
-            'nom'       => 'Mouchelet',
-            'prenom'    => 'Thomas',
-            'Status'    => 'Formateur'
-        ];
+        $event = new Event();
+        $event->setName('Titre2')
+                ->setLocation('Quebec')
+                ->setPrice(90000);
 
-        return $this->render('events/index.html.twig',[
-            'tab' => $tab
-        ]);
+        $em = $this->getDoctrine()->getManager();
+
+        $em->persist($event);
+        /*$em->flush();*/
+
+        return $this->render('events/index.html.twig');
     }
 }
