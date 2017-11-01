@@ -1,5 +1,9 @@
-<h1>Events</h1>
+{% extends "base.html.twig" %}
 
-{{ dump(tab) }}
+{% block body %}
+    <h1>Events</h1>
 
-{{ tab.prenom }}
+    {{ dump(tab) }}
+
+    {{ tab.prenom }}
+{% endblock %}
