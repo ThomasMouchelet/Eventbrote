@@ -14,16 +14,10 @@ class EventsController extends Controller
      */
     public function indexAction()
     {
-        $event = new Event();
-        $event->setName('Titre2')
-                ->setLocation('Quebec')
-                ->setPrice(90000);
-
         $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('AppBundle:Event')->findAll();
 
-        $em->persist($event);
-        /*$em->flush();*/
 
-        return $this->render('events/index.html.twig');
+        return $this->render('events/index.html.twig',compact('events'));
     }
 }

@@ -33,6 +33,16 @@ class Event
     private $price;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $startAt;
+
+    /**
      * Get id
      *
      * @return integer
@@ -112,5 +122,53 @@ class Event
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Event
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set startAt
+     *
+     * @param \DateTime $startAt
+     *
+     * @return Event
+     */
+    public function setStartAt($startAt)
+    {
+        $this->startAt = $startAt;
+
+        return $this;
+    }
+
+    /**
+     * Get startAt
+     *
+     * @return \DateTime
+     */
+    public function getStartAt()
+    {
+        return $this->startAt;
     }
 }

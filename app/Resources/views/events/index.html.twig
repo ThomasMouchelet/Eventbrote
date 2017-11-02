@@ -1,5 +1,15 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+{{ dump(events) }}
 
+    <ul>
+        {% for event in events %}
+            <li>
+                <strong>{{ event.name }}</strong>:
+                {{ event.price | localizedcurrency('EUR','fr')}},
+                {{ event.location }}
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
